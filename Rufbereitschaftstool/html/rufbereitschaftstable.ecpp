@@ -1,0 +1,47 @@
+<%pre>
+
+#include </RufbereitschaftsData/rufbereitschaftsdata.h>
+#include <vector>
+
+</%pre>
+<%args>
+</%args>
+<%cpp>  // <= this starts a c++-processing-block
+
+RufbereitschaftsData myRufbereitschaftsData;
+
+std::vector<int> monthData	= myRufbereitschaftsData.getMonthInfo().getMonth();
+int currentMonth		= myRufbereitschaftsData.getMonthInfo().getCurrentMonth();
+
+std::vector<PersonalInfo> personalInfo = myRufbereitschaftsData.getAllPersonalInfo();
+
+</%cpp>
+
+<html>
+<table>
+ <th>
+  <td>Username</td>
+  
+%   for (std::size_t i = 0; i < monthData.size(); i++){
+%       if (monthData[i] ==0)
+            <td><$ i+1 $>.<$ myRufbereitschaftsData.getMonthInfo().getCurrentMonth() $></td>
+%       else
+            <td style="background-color:#FF0000"><$ i+1 $>.<$ currentMonth $></td>
+%   }       
+ </th>
+ <# generating table header #>
+%   for(std::size_t i = 0; i<personalInfo.size(); i++)
+%   {
+%       std::vector<int> personalMonth = personalInfo[i].getPersonalMonth();
+        <tr>
+          <td><$ personalInfo[i].getName() $></td>
+%         for (std::size_t j = 0; j < personalMonth.size(); i++){
+%             if (personalMonth[j] ==0)
+                <td></td>
+%         else
+                <td style="background-color:#FF0000"></td>
+        </tr>
+ <# generating lines from personalInfo Array #>  
+%   }
+</table>
+</html>

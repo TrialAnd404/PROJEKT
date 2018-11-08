@@ -1,0 +1,2 @@
+actionmain.cpp actionmain.deps: actionmain.ecpp \
+  action.ecpp

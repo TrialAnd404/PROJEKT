@@ -1,0 +1,2 @@
+action/myaction.cpp action/myaction.deps: action/myaction.ecpp \
+  action.ecpp

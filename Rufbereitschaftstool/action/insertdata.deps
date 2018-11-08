@@ -1,0 +1,2 @@
+action/insertdata.cpp action/insertdata.deps: action/insertdata.ecpp \
+  action.ecpp
